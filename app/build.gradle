@@ -12,7 +12,6 @@ android {
         targetSdk 31
         versionCode 1
         versionName "1.0"
-
     }
 
     buildTypes {
@@ -34,4 +33,5 @@ dependencies {
     implementation 'androidx.recyclerview:recyclerview:1.2.1'
     implementation 'androidx.wear:wear:1.1.0'
     implementation 'com.github.devsideal:VectorChildFinder:1.0.0'
+    implementation 'com.github.tarek360.RichPath:animator:0.1.1'
 }
