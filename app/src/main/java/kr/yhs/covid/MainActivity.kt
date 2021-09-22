@@ -6,9 +6,9 @@ import android.os.Bundle
 import com.devs.vectorchildfinder.VectorChildFinder
 import kr.yhs.covid.databinding.ActivityMainBinding
 
-class MainActivity : Activity() {
-    private var mBinding: ActivityMainBinding? = null
-    private val binding get() = mBinding!!
+    class MainActivity : Activity() {
+        private var mBinding: ActivityMainBinding? = null
+        private val binding get() = mBinding!!
 
     private lateinit var map: VectorChildFinder
 
@@ -37,13 +37,13 @@ class MainActivity : Activity() {
             path.fillColor = defaultColor
         }
 
-        binding.imageView.invalidate()
+        // binding.imageView.invalidate()
     }
 
-        private fun mapEditColor(path: String, defaultColor: Int = Color.GRAY) {
+    private fun mapEditColor(path: String, defaultColor: Int = Color.GRAY) {
         val pathD = map.findPathByName(path)
         pathD.fillColor = defaultColor
-        binding.imageView.invalidate()
+        // binding.imageView.invalidate()
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -51,7 +51,7 @@ class MainActivity : Activity() {
 
         mBinding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
-        map = VectorChildFinder(this, R.drawable.korea_map, binding.imageView)
+        // map = VectorChildFinder(this, R.drawable.korea_map, binding.imageView)
 
         mapCreate()
 

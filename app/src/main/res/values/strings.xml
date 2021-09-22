@@ -5,4 +5,15 @@
     values-round/strings.xml for round devices.
     -->
     <string name="hello_world">Hello Square World!</string>
+    <string name="people">%d명</string>
+    <string name="people_addition">(+%d명)</string>
+    <string name="current_description">확진 환자</string>
+    <string name="clinic_description">격리 중</string>
+    <string name="clear_description">격리 해제</string>
+    <string name="death_description">사망자</string>
+    <string name="distancing_description">지역별 거리두기 단계</string>
+    <string name="lv1">1단계</string>
+    <string name="lv2">2단계</string>
+    <string name="lv4">4단계</string>
+    <string name="lv3">3단계</string>
 </resources>

@@ -1,4 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="blue">#0070FF</color>
+    <color name="blue">#FF0070FF</color>
+    <color name="white">#FFFFFFFF</color>
+    <color name="total1">#FF0099ff</color>
+    <color name="total2">#FF006699</color>
+    <color name="total3">#FF174069</color>
+    <color name="total4">#FF808080</color>
+    <color name="distancing_lv1">#FF4088da</color>
+    <color name="distancing_lv2">#FFffb911</color>
+    <color name="distancing_lv3">#FFfc7001</color>
+    <color name="distancing_lv4">#FFe60000</color>
 </resources>
