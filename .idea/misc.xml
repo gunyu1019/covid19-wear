@@ -11,8 +11,10 @@
         <entry key="..\:/AndroidStudio/covid19/app/src/main/res/drawable/total4.xml" value="1.0512820512820513" />
         <entry key="..\:/AndroidStudio/covid19/app/src/main/res/layout/activity_main.xml" value="1.059299191374663" />
         <entry key="..\:/AndroidStudio/covid19/app/src/main/res/layout/corona_total_page.xml" value="0.9717948717948718" />
+        <entry key="..\:/AndroidStudio/covid19/app/src/main/res/layout/distancing_map_page.xml" value="1.0076923076923077" />
         <entry key="..\:/AndroidStudio/covid19/app/src/main/res/layout/distancing_page.xml" value="1.0333333333333334" />
         <entry key="..\:/AndroidStudio/covid19/app/src/main/res/layout/map_data_page.xml" value="0.9717948717948718" />
+        <entry key="..\:/AndroidStudio/covid19/app/src/main/res/layout/page_viewer.xml" value="0.9717948717948718" />
       </map>
     </option>
   </component>

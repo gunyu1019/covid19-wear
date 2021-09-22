@@ -1,9 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.wear.widget.BoxInsetLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.wear.widget.BoxInsetLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -13,10 +15,10 @@
             android:id="@+id/clinicLayout"
             android:layout_width="0dp"
             android:layout_height="0dp"
-            android:layout_marginStart="8dp"
-            android:layout_marginTop="8dp"
-            android:layout_marginEnd="8dp"
-            android:layout_marginBottom="8dp"
+            android:layout_marginStart="@dimen/corona_total_page_box"
+            android:layout_marginTop="@dimen/corona_total_page_box"
+            android:layout_marginEnd="@dimen/corona_total_page_box"
+            android:layout_marginBottom="@dimen/corona_total_page_box"
             android:background="@drawable/total2"
             android:gravity="center"
             android:orientation="vertical"
@@ -32,7 +34,7 @@
                 android:text="@string/clinic_description"
                 android:textAlignment="center"
                 android:textColor="@color/white"
-                android:textSize="15sp" />
+                android:textSize="13sp" />
 
             <TextView
                 android:id="@+id/clinicTextView"
@@ -41,7 +43,7 @@
                 android:text="@string/people"
                 android:textAlignment="center"
                 android:textColor="@color/white"
-                android:textSize="20sp"
+                android:textSize="13sp"
                 android:textStyle="bold" />
 
         </LinearLayout>
@@ -50,10 +52,10 @@
             android:id="@+id/totalLayout"
             android:layout_width="0dp"
             android:layout_height="0dp"
-            android:layout_marginStart="8dp"
-            android:layout_marginTop="8dp"
-            android:layout_marginEnd="8dp"
-            android:layout_marginBottom="8dp"
+            android:layout_marginStart="@dimen/corona_total_page_box"
+            android:layout_marginTop="@dimen/corona_total_page_box"
+            android:layout_marginEnd="@dimen/corona_total_page_box"
+            android:layout_marginBottom="@dimen/corona_total_page_box"
             android:background="@drawable/total1"
             android:gravity="center"
             android:orientation="vertical"
@@ -69,7 +71,7 @@
                 android:text="@string/current_description"
                 android:textAlignment="center"
                 android:textColor="@color/white"
-                android:textSize="15sp" />
+                android:textSize="13sp" />
 
             <TextView
                 android:id="@+id/totalTextView"
@@ -78,7 +80,7 @@
                 android:text="@string/people"
                 android:textAlignment="center"
                 android:textColor="@color/white"
-                android:textSize="15sp"
+                android:textSize="13sp"
                 android:textStyle="bold" />
 
             <TextView
@@ -88,7 +90,7 @@
                 android:text="@string/people_addition"
                 android:textAlignment="center"
                 android:textColor="@color/white"
-                android:textSize="15sp"
+                android:textSize="13sp"
                 android:textStyle="bold" />
         </LinearLayout>
 
@@ -96,13 +98,13 @@
             android:id="@+id/curedLayout"
             android:layout_width="0dp"
             android:layout_height="0dp"
-            android:layout_marginStart="8dp"
-            android:layout_marginTop="8dp"
-            android:layout_marginEnd="8dp"
-            android:layout_marginBottom="8dp"
+            android:layout_marginStart="@dimen/corona_total_page_box"
+            android:layout_marginTop="@dimen/corona_total_page_box"
+            android:layout_marginEnd="@dimen/corona_total_page_box"
+            android:layout_marginBottom="@dimen/corona_total_page_box"
             android:background="@drawable/total3"
-            android:orientation="vertical"
             android:gravity="center"
+            android:orientation="vertical"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@+id/deathLayout"
             app:layout_constraintStart_toStartOf="parent"
@@ -112,20 +114,20 @@
                 android:id="@+id/curedTextViewDescription"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:text="@string/clear_description"
                 android:textAlignment="center"
                 android:textColor="@color/white"
-                android:textSize="15sp"
-                android:text="@string/clear_description" />
+                android:textSize="13sp" />
 
             <TextView
                 android:id="@+id/curedTextView"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:text="@string/people"
                 android:textAlignment="center"
                 android:textColor="@color/white"
-                android:textSize="20sp"
-                android:textStyle="bold"
-                android:text="@string/people" />
+                android:textSize="13sp"
+                android:textStyle="bold" />
 
         </LinearLayout>
 
@@ -133,13 +135,13 @@
             android:id="@+id/deathLayout"
             android:layout_width="0dp"
             android:layout_height="0dp"
-            android:layout_marginStart="8dp"
-            android:layout_marginTop="8dp"
-            android:layout_marginEnd="8dp"
-            android:layout_marginBottom="8dp"
+            android:layout_marginStart="@dimen/corona_total_page_box"
+            android:layout_marginTop="@dimen/corona_total_page_box"
+            android:layout_marginEnd="@dimen/corona_total_page_box"
+            android:layout_marginBottom="@dimen/corona_total_page_box"
             android:background="@drawable/total4"
-            android:orientation="vertical"
             android:gravity="center"
+            android:orientation="vertical"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/curedLayout"
@@ -149,20 +151,20 @@
                 android:id="@+id/deathTextViewDescription"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:text="@string/death_description"
                 android:textAlignment="center"
                 android:textColor="@color/white"
-                android:textSize="15sp"
-                android:text="@string/death_description" />
+                android:textSize="13sp" />
 
             <TextView
                 android:id="@+id/deathTextView"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:text="@string/people"
                 android:textAlignment="center"
                 android:textColor="@color/white"
-                android:textSize="20sp"
-                android:textStyle="bold"
-                android:text="@string/people" />
+                android:textSize="13sp"
+                android:textStyle="bold" />
 
         </LinearLayout>
     </androidx.constraintlayout.widget.ConstraintLayout>

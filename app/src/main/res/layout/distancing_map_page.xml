@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.wear.widget.BoxInsetLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ImageView
+        android:id="@+id/mapView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginEnd="0dp"
+        android:layout_marginBottom="0dp"
+        android:src="@drawable/korea_map"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_boxedEdges="all">
+
+        <TextView
+            android:id="@+id/mapTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="8dp"
+            android:text="@string/distancing_description"
+            android:textSize="15sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <LinearLayout
+            android:id="@+id/mapDescription1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent">
+
+            <TextView
+                android:layout_width="15dp"
+                android:layout_height="15dp"
+                android:background="@color/distancing_lv1"
+                android:layout_weight="1" />
+
+            <TextView
+                android:paddingLeft="3dp"
+                android:paddingRight="3dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/lv1" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/mapDescription2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="horizontal"
+            app:layout_constraintBottom_toTopOf="@+id/mapDescription1"
+            app:layout_constraintEnd_toEndOf="parent">
+
+            <TextView
+                android:layout_width="15dp"
+                android:layout_height="15dp"
+                android:layout_weight="1"
+                android:background="@color/distancing_lv3" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:paddingLeft="3dp"
+                android:paddingRight="3dp"
+                android:text="@string/lv2" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/mapDescription3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="horizontal"
+            app:layout_constraintBottom_toTopOf="@+id/mapDescription2"
+            app:layout_constraintEnd_toEndOf="parent">
+
+            <TextView
+                android:layout_width="15dp"
+                android:layout_height="15dp"
+                android:layout_weight="1"
+                android:background="@color/distancing_lv2" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:paddingLeft="3dp"
+                android:paddingRight="3dp"
+                android:text="@string/lv3" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/mapDescription4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="horizontal"
+            app:layout_constraintBottom_toTopOf="@+id/mapDescription3"
+            app:layout_constraintEnd_toEndOf="parent">
+
+            <TextView
+                android:layout_width="15dp"
+                android:layout_height="15dp"
+                android:layout_weight="1"
+                android:background="@color/distancing_lv4" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:paddingLeft="3dp"
+                android:paddingRight="3dp"
+                android:text="@string/lv4" />
+        </LinearLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.wear.widget.BoxInsetLayout>

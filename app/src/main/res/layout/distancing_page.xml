@@ -1,137 +1,177 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.wear.widget.BoxInsetLayout
+<androidx.core.widget.NestedScrollView
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <ImageView
-        android:id="@+id/mapView"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_marginEnd="0dp"
-        android:layout_marginBottom="0dp"
-        android:src="@drawable/korea_map"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:layout_boxedEdges="all">
 
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        app:layout_boxedEdges="all">
-
-        <TextView
-            android:id="@+id/mapTitle"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
-            android:layout_marginEnd="8dp"
-            android:text="@string/distancing_description"
-            android:textSize="20sp"
-            android:textStyle="bold"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <LinearLayout
-            android:id="@+id/mapDescription1"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:gravity="center"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent">
 
             <TextView
-                android:layout_width="15dp"
-                android:layout_height="15dp"
-                android:background="@color/distancing_lv1"
-                android:layout_weight="1" />
-
-            <TextView
-                android:paddingLeft="3dp"
-                android:paddingRight="3dp"
+                android:id="@+id/lv1_location"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="@string/lv1" />
-        </LinearLayout>
+                android:text="@string/none"
+                app:layout_constraintTop_toBottomOf="@+id/distancingTitle1"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                tools:layout_editor_absoluteX="91dp" />
 
-        <LinearLayout
-            android:id="@+id/mapDescription2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:gravity="center"
-            android:orientation="horizontal"
-            app:layout_constraintBottom_toTopOf="@+id/mapDescription1"
-            app:layout_constraintEnd_toEndOf="parent">
+            <LinearLayout
+                android:id="@+id/distancingTitle1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:orientation="horizontal"
+                android:paddingTop="10dp"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent">
+
+                <TextView
+                    android:layout_width="15dp"
+                    android:layout_height="15dp"
+                    android:layout_weight="1"
+                    android:background="@color/distancing_lv1" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:paddingLeft="3dp"
+                    android:paddingRight="3dp"
+                    android:textStyle="bold"
+                    android:textSize="18sp"
+                    android:text="@string/lv1" />
+            </LinearLayout>
 
             <TextView
-                android:layout_width="15dp"
-                android:layout_height="15dp"
-                android:layout_weight="1"
-                android:background="@color/distancing_lv3" />
-
-            <TextView
+                android:id="@+id/lv2_location"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:paddingLeft="3dp"
-                android:paddingRight="3dp"
-                android:text="@string/lv2" />
-        </LinearLayout>
+                android:text="@string/none"
+                app:layout_constraintTop_toBottomOf="@+id/distancingTitle2"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                tools:layout_editor_absoluteX="91dp"
+                tools:layout_editor_absoluteY="19dp" />
 
-        <LinearLayout
-            android:id="@+id/mapDescription3"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:gravity="center"
-            android:orientation="horizontal"
-            app:layout_constraintBottom_toTopOf="@+id/mapDescription2"
-            app:layout_constraintEnd_toEndOf="parent">
+            <LinearLayout
+                android:id="@+id/distancingTitle2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:orientation="horizontal"
+                android:paddingTop="10dp"
+                app:layout_constraintTop_toBottomOf="@+id/lv1_location"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent">
+
+                <TextView
+                    android:layout_width="15dp"
+                    android:layout_height="15dp"
+                    android:layout_weight="1"
+                    android:background="@color/distancing_lv3" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:paddingLeft="3dp"
+                    android:paddingRight="3dp"
+                    android:textStyle="bold"
+                    android:textSize="18sp"
+                    android:text="@string/lv2" />
+            </LinearLayout>
 
             <TextView
-                android:layout_width="15dp"
-                android:layout_height="15dp"
-                android:layout_weight="1"
-                android:background="@color/distancing_lv2" />
-
-            <TextView
+                android:id="@+id/lv3_location"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:paddingLeft="3dp"
-                android:paddingRight="3dp"
-                android:text="@string/lv3" />
-        </LinearLayout>
+                android:text="@string/none"
+                app:layout_constraintTop_toBottomOf="@+id/distancingTitle3"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                tools:layout_editor_absoluteX="91dp"
+                tools:layout_editor_absoluteY="19dp" />
 
-        <LinearLayout
-            android:id="@+id/mapDescription4"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:gravity="center"
-            android:orientation="horizontal"
-            app:layout_constraintBottom_toTopOf="@+id/mapDescription3"
-            app:layout_constraintEnd_toEndOf="parent">
+            <LinearLayout
+                android:id="@+id/distancingTitle3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:orientation="horizontal"
+                android:paddingTop="10dp"
+                app:layout_constraintTop_toBottomOf="@+id/lv2_location"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent">
+
+                <TextView
+                    android:layout_width="15dp"
+                    android:layout_height="15dp"
+                    android:layout_weight="1"
+                    android:background="@color/distancing_lv2" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:paddingLeft="3dp"
+                    android:paddingRight="3dp"
+                    android:textStyle="bold"
+                    android:textSize="18sp"
+                    android:text="@string/lv3" />
+
+            </LinearLayout>
 
             <TextView
-                android:layout_width="15dp"
-                android:layout_height="15dp"
-                android:layout_weight="1"
-                android:background="@color/distancing_lv4" />
-
-            <TextView
+                android:id="@+id/lv4_location"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:paddingLeft="3dp"
-                android:paddingRight="3dp"
-                android:text="@string/lv4" />
-        </LinearLayout>
+                android:text="@string/none"
+                app:layout_constraintTop_toBottomOf="@+id/distancingTitle4"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                tools:layout_editor_absoluteX="91dp"
+                tools:layout_editor_absoluteY="19dp" />
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
+            <LinearLayout
+                android:id="@+id/distancingTitle4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:orientation="horizontal"
+                android:paddingTop="10dp"
+                app:layout_constraintTop_toBottomOf="@+id/lv3_location"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent">
 
-</androidx.wear.widget.BoxInsetLayout>
+                <TextView
+                    android:layout_width="15dp"
+                    android:layout_height="15dp"
+                    android:layout_weight="1"
+                    android:background="@color/distancing_lv4" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:paddingLeft="3dp"
+                    android:paddingRight="3dp"
+                    android:textStyle="bold"
+                    android:textSize="18sp"
+                    android:text="@string/lv4" />
+
+            </LinearLayout>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.core.widget.NestedScrollView>

@@ -16,4 +16,5 @@
     <string name="lv2">2단계</string>
     <string name="lv4">4단계</string>
     <string name="lv3">3단계</string>
+    <string name="none">(없음)</string>
 </resources>

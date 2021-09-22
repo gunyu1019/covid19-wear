@@ -35,4 +35,6 @@ dependencies {
     implementation 'com.github.devsideal:VectorChildFinder:1.0.0'
     implementation 'com.github.tarek360.RichPath:animator:0.1.1'
     implementation 'androidx.viewpager2:viewpager2:1.0.0'
+    implementation 'com.google.android.support:wearable:2.6.0'
+    compileOnly 'com.google.android.wearable:wearable:2.6.0'
 }
