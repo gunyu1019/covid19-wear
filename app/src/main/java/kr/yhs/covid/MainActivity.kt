@@ -23,7 +23,7 @@ class MainActivity : Activity() {
         val list: ArrayList<ViewData> = ArrayList()
         list.add(
             ViewData(
-                R.layout.corona_total_page,
+                R.layout.dashboard_page,
                 activity = DashboardActivity(),
                 context = this@MainActivity
             )
