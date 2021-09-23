@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.support.wearable.input.RotaryEncoder
 import android.view.MotionEvent
 import kr.yhs.covid.activity.DashboardActivity
+import kr.yhs.covid.activity.DistancingActivity
 import kr.yhs.covid.activity.DistancingMapActivity
 import kr.yhs.covid.databinding.ActivityMainBinding
 import kr.yhs.covid.viewPage.ViewData
@@ -38,6 +39,7 @@ class MainActivity : Activity() {
         list.add(
             ViewData(
                 R.layout.distancing_page,
+                activity = DistancingActivity(),
                 context = this@MainActivity
             )
         )

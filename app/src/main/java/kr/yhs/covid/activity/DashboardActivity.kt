@@ -28,6 +28,7 @@ class DashboardActivity: MainResourceActivity(), CoroutineScope {
                 val response = Jsoup.connect(
                     "http://ncov.mohw.go.kr/bdBoardList_Real.do?brdId=1&brdGubun=11"
                 ).get()
+
                 val case = response
                     .body()
                     .select("div.caseTable")

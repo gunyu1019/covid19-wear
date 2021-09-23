@@ -56,9 +56,8 @@ class DistancingMapActivity: MainResourceActivity(), CoroutineScope {
         launch {
             val deffered = async(Dispatchers.Default) {
                 val response = Jsoup.connect(
-                    "http://ncov.mohw.go.kr/"
+                    "http://ncov.mohw.go.kr/regSocdisBoardView.do?brdId=6&brdGubun=68&ncvContSeq=495"
                 ).get()
-                val mainMapLayout = response.body().select("div#main_maplayout1")
                 val locations: Array<String> = arrayOf(
                     "Seoul",
                     "Busan",
@@ -78,16 +77,19 @@ class DistancingMapActivity: MainResourceActivity(), CoroutineScope {
                     "South Gyeongsang",
                     "Jeju",
                 )
-                val result = mutableMapOf<String, String>()
-                for ((index, location) in locations.withIndex()) {
-                    //Log.i("distancing", "$index - ${mainMapLayout
-                    //    .select("button[data-city='step_map_city${index+1}']")}")
-                    result[location] = mainMapLayout
-                        .select("button[data-city='step_map_city${index+1}']")
-                        .select("span.num")
-                        .text()
+
+                var valueList: List<String> = listOf()
+                for (script in response.body().select("script")) {
+                    if (script.html().split("RSS_DATA").size == 1)
+                        continue
+                    valueList = script.html().split("value : '")
                 }
-                // Log.i("distancing", "$result")
+
+                val result = mutableMapOf<String, Int>()
+                for ((index, location) in locations.withIndex()) {
+                    result[location] = valueList[index + 1].split("'")[0].toInt()
+                }
+                Log.i("distancing", "$result")
                 return@async result
             }
             deffered.await().let {
@@ -95,10 +97,10 @@ class DistancingMapActivity: MainResourceActivity(), CoroutineScope {
                     var color = Color.GRAY
 
                     when (location.value) {
-                        "1" -> { color = R.color.distancing_lv1 }
-                        "2" -> { color = R.color.distancing_lv2 }
-                        "3" -> { color = R.color.distancing_lv3 }
-                        "4" -> { color = R.color.distancing_lv4 }
+                        1 -> { color = context.getColor(R.color.distancing_lv1) }
+                        2 -> { color = context.getColor(R.color.distancing_lv2) }
+                        3 -> { color = context.getColor(R.color.distancing_lv3) }
+                        4 -> { color = context.getColor(R.color.distancing_lv4) }
                     }
 
                     mapEditColor(location.key, color)
