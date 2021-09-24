@@ -73,7 +73,7 @@
                 android:layout_width="15dp"
                 android:layout_height="15dp"
                 android:layout_weight="1"
-                android:background="@color/distancing_lv3" />
+                android:background="@color/distancing_lv2" />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -97,7 +97,7 @@
                 android:layout_width="15dp"
                 android:layout_height="15dp"
                 android:layout_weight="1"
-                android:background="@color/distancing_lv2" />
+                android:background="@color/distancing_lv3" />
 
             <TextView
                 android:layout_width="wrap_content"

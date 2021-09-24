@@ -28,11 +28,12 @@ class DistancingActivity: MainResourceActivity(), CoroutineScope {
                 var warnings = stepMapAll.select("p.rssd_descript")
 
                 val result = ArrayList<String>()
-                for (index in 0..2) {
+                for (index in 0..3) {
                     result.add(
                         warnings.first().html().replace("<br>", "\n")
                     )
-                    warnings = warnings.nextAll()
+                    if (index < 3)
+                        warnings = warnings.nextAll("p.rssd_descript")
                 }
                 return@async result
             }

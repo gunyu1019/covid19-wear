@@ -4,6 +4,9 @@ import android.app.Activity
 import android.os.Bundle
 import android.support.wearable.input.RotaryEncoder
 import android.view.MotionEvent
+import android.view.ViewConfiguration
+import androidx.core.view.InputDeviceCompat
+import androidx.core.view.ViewConfigurationCompat
 import kr.yhs.covid.activity.DashboardActivity
 import kr.yhs.covid.activity.DistancingActivity
 import kr.yhs.covid.activity.DistancingMapActivity
@@ -48,8 +51,10 @@ class MainActivity : Activity() {
     }
 
     override fun onGenericMotionEvent(event: MotionEvent?): Boolean {
-        if (event?.action == MotionEvent.ACTION_SCROLL && RotaryEncoder.isFromRotaryEncoder(event)) {
-            val delta = -RotaryEncoder.getRotaryAxisValue(event)
+        if (event?.action == MotionEvent.ACTION_SCROLL && event.isFromSource(InputDeviceCompat.SOURCE_ROTARY_ENCODER)) {
+            val delta = event.getAxisValue(MotionEvent.AXIS_SCROLL) * ViewConfigurationCompat.getScaledVerticalScrollFactor(
+                ViewConfiguration.get(this), this
+            )
             if (delta > 0 && binding.viewPager.currentItem <= binding.viewPager.adapter!!.itemCount)
                 binding.viewPager.currentItem += 1
             else if (delta < 0 && binding.viewPager.currentItem >= 0)
