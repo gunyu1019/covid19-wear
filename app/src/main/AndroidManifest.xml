@@ -41,7 +41,7 @@
             android:name="kr.yhs.covid.tiles.DashboardTile"
             android:label="@string/tile1_name"
             android:description="@string/tile1_description"
-            android:icon="@drawable/ic_run"
+            android:icon="@drawable/ic_dashboard"
             android:permission="com.google.android.wearable.permission.BIND_TILE_PROVIDER"
             android:exported="true">
             <intent-filter>
@@ -51,7 +51,7 @@
             <!-- The tile preview shown when configuring tiles on your phone -->
             <meta-data
                 android:name="androidx.wear.tiles.PREVIEW"
-                android:resource="@drawable/title_resource"/>
+                android:resource="@drawable/dashboard_tile"/>
         </service>
     </application>
 </manifest>
