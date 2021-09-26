@@ -6,6 +6,7 @@
     <color name="total2">#FF006699</color>
     <color name="total3">#FF174069</color>
     <color name="total4">#FF808080</color>
+    <color name="vaccinated_box">#FF808080</color>
     <color name="distancing_lv1">#FF4088da</color>
     <color name="distancing_lv2">#FFffb911</color>
     <color name="distancing_lv3">#FFfc7001</color>

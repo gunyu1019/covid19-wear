@@ -4,19 +4,29 @@
     This string is used for square devices and overridden by hello_world in
     values-round/strings.xml for round devices.
     -->
-    <string name="hello_world">Hello Square World!</string>
     <string name="people">%s명</string>
     <string name="people_addition">(%s명)</string>
+    <string name="people_addition_template">(+%s명)</string>
+
     <string name="current_description">확진 환자</string>
     <string name="clinic_description">격리 중</string>
     <string name="clear_description">격리 해제</string>
     <string name="death_description">사망자</string>
-    <string name="distancing_description">지역별 거리두기 단계</string>
+
+    <string name="distancing_title">지역별 거리두기 단계</string>
+    <string name="location_title">시/도별 확진환자 현황</string>
+
+    <string name="none">(없음)</string>
     <string name="lv1">1단계</string>
     <string name="lv2">2단계</string>
     <string name="lv4">4단계</string>
     <string name="lv3">3단계</string>
-    <string name="none">(없음)</string>
+
+    <string name="first_vaccinated">1차 접종</string>
+    <string name="second_vaccinated">2차 접종</string>
+    <string name="total_vaccinated">누적</string>
+
     <string name="tile1_name">코로나 대시보드</string>
     <string name="tile1_description">새로운 코로나 정보를 볼 수 있습니다.</string>
+    <string name="vaccinated_title">예방접종 현황</string>
 </resources>

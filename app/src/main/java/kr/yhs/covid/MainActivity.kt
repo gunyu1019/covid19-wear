@@ -10,6 +10,7 @@ import androidx.core.view.ViewConfigurationCompat
 import kr.yhs.covid.activity.DashboardActivity
 import kr.yhs.covid.activity.DistancingActivity
 import kr.yhs.covid.activity.DistancingMapActivity
+import kr.yhs.covid.activity.VaccinatedBoxActivity
 import kr.yhs.covid.databinding.ActivityMainBinding
 import kr.yhs.covid.viewPage.ViewData
 import kr.yhs.covid.viewPage.ViewPagerAdapter
@@ -29,6 +30,13 @@ class MainActivity : Activity() {
             ViewData(
                 R.layout.dashboard_page,
                 activity = DashboardActivity(),
+                context = this@MainActivity
+            )
+        )
+        list.add(
+            ViewData(
+                R.layout.vaccinated,
+                activity = VaccinatedBoxActivity(),
                 context = this@MainActivity
             )
         )
