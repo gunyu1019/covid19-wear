@@ -1,5 +1,6 @@
 package kr.yhs.covid.adapter.vaccinatedMenu
 
+import android.app.Activity
 import android.view.View
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
@@ -15,9 +16,9 @@ class MenuViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
     private fun getNumberToString(number: Int): String =
         NumberFormat.getNumberInstance(Locale.US).format(number)
 
-    fun onBind(data: MenuData) {
-        totalTextView.text = getNumberToString(data.total)
-        currentTextView.text = getNumberToString(data.current)
+    fun onBind(data: MenuData, context: Activity) {
+        totalTextView.text = context.getString(R.string.people, getNumberToString(data.total))
+        currentTextView.text = context.getString(R.string.people_addition_template, getNumberToString(data.current))
         locationName.text = data.name
         bindingAdapter
     }

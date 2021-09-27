@@ -8,6 +8,7 @@ import androidx.recyclerview.widget.RecyclerView
 import kr.yhs.covid.R
 
 class ViewPagerAdapter(private var data: ArrayList<ViewData>): RecyclerView.Adapter<ViewHolderPage>() {
+    private var beforePage: Int = -1
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolderPage {
         val context: Context = parent.context

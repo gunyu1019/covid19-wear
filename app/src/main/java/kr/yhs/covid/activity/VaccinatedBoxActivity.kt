@@ -1,7 +1,13 @@
 package kr.yhs.covid.activity
 
+import android.util.Log
+import android.view.View
+import android.view.animation.TranslateAnimation
 import android.widget.TextView
+import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.recyclerview.widget.RecyclerView
+import androidx.wear.widget.WearableLinearLayoutManager
+import androidx.wear.widget.WearableRecyclerView
 import kotlinx.coroutines.*
 import kr.yhs.covid.R
 import kr.yhs.covid.adapter.vaccinatedMenu.MenuAdapter
@@ -14,6 +20,8 @@ import kotlin.collections.ArrayList
 import kotlin.coroutines.CoroutineContext
 
 class VaccinatedBoxActivity: MainResourceActivity(), CoroutineScope {
+    lateinit var recyclerView: WearableRecyclerView
+
     private fun locationData(recyclerView: RecyclerView, selectionType: String) {
         launch {
             val deffered2 = async(Dispatchers.Default) {
@@ -33,7 +41,7 @@ class VaccinatedBoxActivity: MainResourceActivity(), CoroutineScope {
                 return@async result
             }
             deffered2.await().let {
-                recyclerView.adapter = MenuAdapter(it)
+                recyclerView.adapter = MenuAdapter(this@VaccinatedBoxActivity.context, it)
             }
         }
     }
@@ -45,6 +53,25 @@ class VaccinatedBoxActivity: MainResourceActivity(), CoroutineScope {
         val firstCurrentTextView = view.findViewById<TextView>(R.id.first_currentVaccinatedTextView)
         val secondTextView = view.findViewById<TextView>(R.id.second_TotalVaccinatedTextView)
         val secondCurrentTextView = view.findViewById<TextView>(R.id.second_currentVaccinatedTextView)
+
+        recyclerView = view.findViewById(R.id.vaccinated_menu_view)
+
+        slideDown(recyclerView)
+        recyclerView.setHasFixedSize(true)
+        recyclerView.layoutManager = WearableLinearLayoutManager(context)
+        recyclerView.isEdgeItemsCenteringEnabled = true
+        recyclerView.adapter = MenuAdapter(context)
+
+        val setLayoutList: MutableMap<String, ConstraintLayout> = mutableMapOf(
+            "first" to view.findViewById(R.id.vaccinatedLayout1),
+            "second" to view.findViewById(R.id.vaccinatedLayout2)
+        )
+        for (layout in setLayoutList.keys) {
+            setLayoutList[layout]?.setOnClickListener {
+                this@VaccinatedBoxActivity.slideUp(recyclerView)
+                this.locationData(recyclerView, layout)
+            }
+        }
 
         launch {
             val deffered = async(Dispatchers.Default) {
@@ -81,6 +108,32 @@ class VaccinatedBoxActivity: MainResourceActivity(), CoroutineScope {
                 )
             }
         }
+    }
+
+    fun slideUp(view: View) {
+        view.visibility = View.VISIBLE
+        val animate = TranslateAnimation(
+            0F,
+            0F,
+            view.height.toFloat(),
+            0F,
+        )
+        animate.duration = 500
+        animate.fillAfter = true
+        view.startAnimation(animate)
+    }
+
+    fun slideDown(view: View) {
+        val animate = TranslateAnimation(
+            0F,
+            0F,
+            0F,
+            view.height.toFloat()
+        )
+        animate.duration = 500
+        animate.fillAfter = true
+        view.startAnimation(animate)
+        view.visibility = View.GONE
     }
 
     private lateinit var mJob: Job

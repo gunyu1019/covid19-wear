@@ -3,6 +3,7 @@ package kr.yhs.covid
 import android.app.Activity
 import android.os.Bundle
 import android.view.MotionEvent
+import android.view.View
 import android.view.ViewConfiguration
 import androidx.core.view.InputDeviceCompat
 import androidx.core.view.ViewConfigurationCompat
@@ -17,6 +18,7 @@ import kr.yhs.covid.adapter.viewPage.ViewPagerAdapter
 class MainActivity : Activity() {
     private var mBinding: ActivityMainBinding? = null
     private val binding get() = mBinding!!
+    var page: ArrayList<ViewData> = ArrayList()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -24,29 +26,28 @@ class MainActivity : Activity() {
         mBinding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        val list: ArrayList<ViewData> = ArrayList()
-        list.add(
+        page.add(
             ViewData(
                 R.layout.dashboard_page,
                 activity = DashboardActivity(),
                 context = this@MainActivity
             )
         )
-        list.add(
+        page.add(
             ViewData(
                 R.layout.vaccinated,
                 activity = VaccinatedBoxActivity(),
                 context = this@MainActivity
             )
         )
-        list.add(
+        page.add(
             ViewData(
                 R.layout.distancing_map_page,
                 activity = DistancingMapActivity(),
                 context = this@MainActivity
             )
         )
-        list.add(
+        page.add(
             ViewData(
                 R.layout.distancing_page,
                 activity = DistancingActivity(),
@@ -54,7 +55,7 @@ class MainActivity : Activity() {
             )
         )
 
-        binding.viewPager.adapter = ViewPagerAdapter(list)
+        binding.viewPager.adapter = ViewPagerAdapter(page)
     }
 
     override fun onGenericMotionEvent(event: MotionEvent?): Boolean {
@@ -68,5 +69,20 @@ class MainActivity : Activity() {
                 binding.viewPager.currentItem -= 1
         }
         return super.onGenericMotionEvent(event)
+    }
+
+    override fun onBackPressed() {
+        val nowPosition = page[binding.viewPager.currentItem]
+        if (nowPosition.activity != null && nowPosition.id == R.layout.vaccinated) {
+            val activity: VaccinatedBoxActivity = nowPosition.activity as VaccinatedBoxActivity
+            if (activity.recyclerView.visibility != View.GONE) {
+                activity.slideDown(activity.recyclerView)
+                activity.recyclerView.visibility = View.GONE
+            } else {
+                super.onBackPressed()
+            }
+        } else {
+            super.onBackPressed()
+        }
     }
 }
