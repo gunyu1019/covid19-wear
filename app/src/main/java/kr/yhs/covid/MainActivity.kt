@@ -2,7 +2,6 @@ package kr.yhs.covid
 
 import android.app.Activity
 import android.os.Bundle
-import android.support.wearable.input.RotaryEncoder
 import android.view.MotionEvent
 import android.view.ViewConfiguration
 import androidx.core.view.InputDeviceCompat
@@ -12,8 +11,8 @@ import kr.yhs.covid.activity.DistancingActivity
 import kr.yhs.covid.activity.DistancingMapActivity
 import kr.yhs.covid.activity.VaccinatedBoxActivity
 import kr.yhs.covid.databinding.ActivityMainBinding
-import kr.yhs.covid.viewPage.ViewData
-import kr.yhs.covid.viewPage.ViewPagerAdapter
+import kr.yhs.covid.adapter.viewPage.ViewData
+import kr.yhs.covid.adapter.viewPage.ViewPagerAdapter
 
 class MainActivity : Activity() {
     private var mBinding: ActivityMainBinding? = null

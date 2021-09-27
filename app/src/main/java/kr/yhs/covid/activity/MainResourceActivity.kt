@@ -2,7 +2,7 @@ package kr.yhs.covid.activity
 
 import android.app.Activity
 import android.view.View
-import kr.yhs.covid.viewPage.ViewData
+import kr.yhs.covid.adapter.viewPage.ViewData
 
 abstract class MainResourceActivity {
     var id = 0

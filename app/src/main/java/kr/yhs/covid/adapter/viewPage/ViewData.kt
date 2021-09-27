@@ -1,4 +1,4 @@
-package kr.yhs.covid.viewPage
+package kr.yhs.covid.adapter.viewPage
 
 import android.app.Activity
 import android.view.View

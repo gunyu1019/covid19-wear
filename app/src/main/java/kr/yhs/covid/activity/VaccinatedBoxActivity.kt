@@ -1,8 +1,11 @@
 package kr.yhs.covid.activity
 
 import android.widget.TextView
+import androidx.recyclerview.widget.RecyclerView
 import kotlinx.coroutines.*
 import kr.yhs.covid.R
+import kr.yhs.covid.adapter.vaccinatedMenu.MenuAdapter
+import kr.yhs.covid.adapter.vaccinatedMenu.MenuData
 import org.jsoup.Jsoup
 import org.jsoup.parser.Parser
 import java.text.NumberFormat
@@ -11,6 +14,30 @@ import kotlin.collections.ArrayList
 import kotlin.coroutines.CoroutineContext
 
 class VaccinatedBoxActivity: MainResourceActivity(), CoroutineScope {
+    private fun locationData(recyclerView: RecyclerView, selectionType: String) {
+        launch {
+            val deffered2 = async(Dispatchers.Default) {
+                val response = Jsoup.connect(
+                    "https://nip.kdca.go.kr/irgd/cov19stats.do?list=sido"
+                ).parser(Parser.xmlParser()).get()
+
+                val items = response.body().select("item")
+                val result: ArrayList<MenuData> = arrayListOf()
+                for (item in items) {
+                    result.add(MenuData(
+                        name = item.select("sidoNm").text(),
+                        current = item.select("${selectionType}Cnt").text().toInt(),
+                        total = item.select("${selectionType}Tot").text().toInt(),
+                    ))
+                }
+                return@async result
+            }
+            deffered2.await().let {
+                recyclerView.adapter = MenuAdapter(it)
+            }
+        }
+    }
+
     override fun onCreate() {
         mJob = Job()
 

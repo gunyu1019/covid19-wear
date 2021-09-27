@@ -1,4 +1,4 @@
-package kr.yhs.covid.viewPage
+package kr.yhs.covid.adapter.viewPage
 
 import android.content.Context
 import android.view.LayoutInflater
@@ -6,7 +6,6 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import kr.yhs.covid.R
-import kr.yhs.covid.activity.DashboardActivity
 
 class ViewPagerAdapter(private var data: ArrayList<ViewData>): RecyclerView.Adapter<ViewHolderPage>() {
 
